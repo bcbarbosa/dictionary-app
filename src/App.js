@@ -3,11 +3,12 @@ import './App.css';
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <p>
-          Hello from App
-        </p>
-      </header>
+      <h1>Dictionary App</h1>
+      <h2>Here you will find my dictionary app
+      </h2>
+      <div>
+        <a href="#" className="btn btn-primary mt-3">Search words</a>
+      </div>
     </div>
   );
 }
