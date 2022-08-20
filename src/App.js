@@ -7,7 +7,7 @@ function App() {
       <h2>Here you will find my dictionary app
       </h2>
       <div>
-        <a href="https://www.dictionary.com/" className="btn btn-primary shadow mt-3" target="_blank">Search words</a>
+        <a href="https://www.dictionary.com/" className="btn btn-primary shadow mt-3" target="_blank" rel="noreferrer">Search words</a>
       </div>
     </div>
   );
