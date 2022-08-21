@@ -70,7 +70,7 @@ export default function Dictionary() {
                                     className="btn btn-primary w-100" />
                             </div>
                             <div className="hint">
-                                suggested words: cat, hello, house,...
+                                Suggested words: cat, hello, house,...
                             </div>
                         </div>
                     </form>
