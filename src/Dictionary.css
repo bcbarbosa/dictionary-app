@@ -1,3 +1,32 @@
+.Dictionary {
+    padding: 10px 50px 300px;
+}
+
+.Dictionary section {
+    background-color: white;
+    padding: 20px;
+    border-radius: 7px;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
+    margin: 10px 0;
+}
+
+.Dictionary .hint {
+    font-size: 10px;
+    opacity: 0.7;
+    margin: 3px 0;
+}
+
 .Results h2 {
     margin-top: 5px;
+}
+
+@media (max-width: 768px) {
+    .Dictionary {
+        padding: 20px 10px 300px;
+        font-size: 15px;
+    }
+
+    .Dictionary h1 {
+        font-size: 30px;
+    }
 }
