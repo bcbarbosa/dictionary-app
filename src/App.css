@@ -1,4 +1,7 @@
 .App {
-  text-align: center;
   padding: 20px;
+}
+
+.App h1 {
+  text-align: center;
 }
