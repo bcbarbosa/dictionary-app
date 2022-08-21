@@ -1,11 +1,25 @@
 .App {
-  padding: 20px;
+  padding: 20px 160px;
 }
 
 .App h1 {
   text-align: center;
+  padding: 40px;
+  font-size: 55px;
 }
 
 footer {
   margin-top: 50px;
+}
+
+@media (max-width: 768px) {
+  .App {
+    padding: 20px;
+    font-size: 15px;
+  }
+
+  .App h1 {
+    font-size: 25px;
+    padding: 20px;
+  }
 }
