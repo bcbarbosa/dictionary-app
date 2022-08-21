@@ -1,14 +1,14 @@
 import React from "react";
 
-export default function Synonyms(props) {
-    console.log(props.synonyms);
-    if (props.synonyms) {
+export default function Antonyms(props) {
+    console.log(props.antonyms);
+    if (props.antonyms) {
         return (
-            <ul className="Synonyms">
-                {props.synonyms.map(function (synonym, index) {
+            <ul className="Antonyms">
+                {props.antonyms.map(function (antonym, index) {
                     return (
                         <li key={index}>
-                            {synonym} (synonym)
+                            {antonym} (antonym)
                         </li>
                     )
                 })}
