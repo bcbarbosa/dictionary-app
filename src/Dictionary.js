@@ -6,6 +6,7 @@ import Results from "./Results";
 export default function Dictionary() {
     let [keyword, setKeyword] = useState("");
     let [results, setResults] = useState(null);
+    let [loaded, setLoaded] = useState(false);
 
     function handleResponse(response) {
         setResults(response.data[0]);
@@ -22,15 +23,19 @@ export default function Dictionary() {
         search();
     }
 
+    function load() {
+        setLoaded(true);
+        search();
+    }
+
     // function search() {
+    //     // documentation: https://dictionaryapi.dev/
     //     let apiUrl = `https://api.dictionaryapi.dev/api/v2/entries/en/${keyword}`;
     //     axios
     //         .get(apiUrl)
     //         .then(response => {
-    //             const { word } = response.data;
-    //             setKeyword({
+    //             setResults(response.data[0], {
     //                 ready: true,
-    //                 word: word
     //             });
     //         })
     //         .catch(error => {
@@ -42,34 +47,39 @@ export default function Dictionary() {
         setKeyword(event.target.value);
     }
 
-    return (
-        <div className="Dictionary">
-            <h1>Dictionary</h1>
-            <section>
-                <form onSubmit={handleSubmit}>
-                    <div className="row mt-4">
-                        <div className="col-9">
-                            <input
-                                type="search"
-                                placeholder="Search for a word"
-                                className="form-control"
-                                autoFocus="on"
-                                onChange={handleKeyWordChange}
-                            />
+    if (loaded) {
+        return (
+            <div className="Dictionary">
+                <section>
+                    <h1>What word is in your mind today?</h1>
+                    <form onSubmit={handleSubmit}>
+                        <div className="row mt-4">
+                            <div className="col-9">
+                                <input
+                                    type="search"
+                                    placeholder="Search for a word"
+                                    className="form-control"
+                                    autoFocus="on"
+                                    onChange={handleKeyWordChange}
+                                />
+                            </div>
+                            <div className="col-3">
+                                <input
+                                    type="submit"
+                                    value="Search"
+                                    className="btn btn-primary w-100" />
+                            </div>
+                            <div className="hint">
+                                suggested words: cat, hello, house,...
+                            </div>
                         </div>
-                        <div className="col-3">
-                            <input
-                                type="submit"
-                                value="Search"
-                                className="btn btn-primary w-100" />
-                        </div>
-                        <div className="hint">
-                            suggested words: cat, hello, house,...
-                        </div>
-                    </div>
-                </form>
-            </section>
-            <Results results={results} />
-        </div>
-    )
+                    </form>
+                </section>
+                <Results results={results} />
+            </div>
+        )
+    } else {
+        load();
+        return "Loading";
+    }
 }
