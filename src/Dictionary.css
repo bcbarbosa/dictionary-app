@@ -21,51 +21,6 @@
     margin: 3px 0;
 }
 
-.Results h2 {
-    margin-top: 5px;
-}
-
-.Results .example {
-    opacity: 0.8;
-}
-
-.Synonyms {
-    margin: 20px 0 0;
-    padding: 0;
-}
-
-.Synonyms li {
-    display: inline-block;
-    padding-right: 15px;
-}
-
-.Phonetics {
-    margin: 25px 18px;
-}
-
-.Phonetics a {
-    margin-left: 10px;
-    border: 2px solid #B9E8E8;
-    border-radius: 20px;
-    padding: 8px 20px;
-    transition: all 150ms ease-in-out;
-    text-decoration: none;
-    color: #272343E8;
-}
-
-.Phonetics a:hover {
-    color: #B9E8E8;
-}
-
-.Phonetics .text {
-    opacity: 0.5;
-}
-
-.Photos img {
-    border-radius: 4px;
-    margin-bottom: 20px;
-}
-
 @media (max-width: 768px) {
     .Dictionary {
         padding: 20px 10px 300px;
