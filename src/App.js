@@ -8,7 +8,7 @@ function App() {
         <Dictionary />
       </div>
       <footer className="text-center">
-        Coded by Beatriz Barbosa on <a href="https://github.com/beatrizmcbarbosa/dictionary-app" target="_blank" rel="noreferrer">GitHub</a>
+        Coded by <a href="https://dapper-stardust-7d2615.netlify.app/index.html" target="_blank" rel="noreferrer">Beatriz Barbosa</a> on <a href="https://github.com/beatrizmcbarbosa/dictionary-app" target="_blank" rel="noreferrer">GitHub</a>
       </footer>
     </div>
   );
