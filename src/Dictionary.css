@@ -61,6 +61,11 @@
     opacity: 0.5;
 }
 
+.Photos img {
+    border-radius: 4px;
+    margin-bottom: 20px;
+}
+
 @media (max-width: 768px) {
     .Dictionary {
         padding: 20px 10px 300px;

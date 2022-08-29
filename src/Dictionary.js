@@ -1,21 +1,36 @@
 import React, { useState } from "react";
 import axios from "axios";
 import "./Dictionary.css"
+import Photos from "./Photos";
 import Results from "./Results";
 
 export default function Dictionary() {
     let [keyword, setKeyword] = useState("");
     let [results, setResults] = useState(null);
     let [loaded, setLoaded] = useState(false);
+    let [photos, setPhotos] = useState(null);
 
-    function handleResponse(response) {
+    function handleDictionaryResponse(response) {
         setResults(response.data[0]);
+    }
+
+    function handlePexelsResponse(response) {
+        setPhotos(response.data.photos);
     }
 
     function search() {
         // documentation: https://dictionaryapi.dev/
         let apiUrl = `https://api.dictionaryapi.dev/api/v2/entries/en/${keyword}`;
-        axios.get(apiUrl).then(handleResponse);
+        axios.get(apiUrl).then(handleDictionaryResponse);
+
+        let pexelsApiKey = "563492ad6f91700001000001ee5f1c6b80aa4b2f8e1e87721cabb45c";
+        let pexelsApiUrl = `https://api.pexels.com/v1/search?query=${keyword}&per_page=10`;
+        let headers = { Authorization: `Bearer ${pexelsApiKey}` }
+        axios
+            .get(pexelsApiUrl, {
+                headers: headers
+            })
+            .then(handlePexelsResponse);
     }
 
     function handleSubmit(event) {
@@ -27,21 +42,6 @@ export default function Dictionary() {
         setLoaded(true);
         search();
     }
-
-    // function search() {
-    //     // documentation: https://dictionaryapi.dev/
-    //     let apiUrl = `https://api.dictionaryapi.dev/api/v2/entries/en/${keyword}`;
-    //     axios
-    //         .get(apiUrl)
-    //         .then(response => {
-    //             setResults(response.data[0], {
-    //                 ready: true,
-    //             });
-    //         })
-    //         .catch(error => {
-    //             console.log("Error fetching data, ", error);
-    //         });
-    // }
 
     function handleKeyWordChange(event) {
         setKeyword(event.target.value);
@@ -76,6 +76,7 @@ export default function Dictionary() {
                     </form>
                 </section>
                 <Results results={results} />
+                <Photos photos={photos} />
             </div>
         )
     } else {
